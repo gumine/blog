@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>归档：2018 | 攀峰工作室文件共享</title>
+<title>添加Quickstart.UI | 攀峰工作室文件共享</title>
 
 
     <link rel="alternate" href="/atom.xml" title="攀峰工作室文件共享" type="application/atom+xml">
@@ -127,75 +127,97 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">2018年 月</h1>
-        
-          <li class="post-items" _href="/2018/02/02/1-初步构建/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/1-初步构建/"> 初步构建 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/4-添加Quickstart.UI/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/4-添加Quickstart.UI/"> 添加Quickstart.UI </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/5-JS的隐式授予/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/5-JS的隐式授予/"> JS的隐式授予 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/2-使用IdentityServer保护API/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/2-使用IdentityServer保护API/"> 使用IdentityServer保护API </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/3-通过授权访问API/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/3-通过授权访问API/"> 通过授权访问API </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/1-前言/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/1-前言/"> 前言 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/4-连接数据库/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/4-连接数据库/"> 连接数据库 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/3-设计后台Api/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/3-设计后台Api/"> 设计后台Api </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/2-框架构建/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/2-框架构建/"> 框架构建 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/01/index/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/01/index/">  </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="添加Quickstart.UI">
+            
+	            添加Quickstart.UI
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>框架和第三方库</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            IdentityServer4
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/02</span>
+    </span>
 </div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="添加Quickstart-UI"><a href="#添加Quickstart-UI" class="headerlink" title="添加Quickstart.UI"></a>添加Quickstart.UI</h2><p>在前面实现的认证服务器，我们已经可以实现了客户端认证的两种方式。但若我们想要通过混合认证或者隐式授予的方式进行认证的话，我们还需要一个用于用户登陆的界面。</p>
+<p>这里官方可以说是很贴心了，特地准备了一个<a href="https://github.com/IdentityServer/IdentityServer4.Quickstart.UI" target="_blank" rel="noopener">Quickstatr.UI</a>用于快速创建。</p>
+<p>步骤非常简单，首先，我们需要给服务器配置上相关服务和中间件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class Startup</span><br><span class="line">&#123;</span><br><span class="line">    public void ConfigureServices(IServiceCollection services)</span><br><span class="line">    &#123;</span><br><span class="line">        services.AddMvc();</span><br><span class="line"></span><br><span class="line">        // rest omitted</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void Configure(IApplicationBuilder app)</span><br><span class="line">    &#123;</span><br><span class="line">        app.UseStaticFiles();</span><br><span class="line"></span><br><span class="line">        app.UseIdentityServer();</span><br><span class="line"></span><br><span class="line">        app.UseMvcWithDefaultRoute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，打开PowerShell，将目录切到认证服务器的根目录下，拉取并调用现成的脚本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/IdentityServer/IdentityServer4.Quickstart.UI/release/get.ps1'))</span><br></pre></td></tr></table></figure>
+<p>重新Build项目就完工了。</p>
+<p><img src="https://blog-1252574286.cossh.myqcloud.com/pfstudio/IdentityServer/4-QuickstartUI.PNG" alt="QuickstartUI"></p>
+<h2 id="额外的登录选项"><a href="#额外的登录选项" class="headerlink" title="额外的登录选项"></a>额外的登录选项</h2><p>官方的Quickstart.UI中其实还配置了Google和OpenID的额外的登录选项，这里因为我暂时不使用，所以没有配置，想尝试一下的可以继续官方的教程配置以下内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public class Startup</span><br><span class="line">&#123;</span><br><span class="line">    public void ConfigureServices(IServiceCollection services)</span><br><span class="line">    &#123;</span><br><span class="line">        services.AddMvc();</span><br><span class="line">        </span><br><span class="line">        // some details omitted</span><br><span class="line">        services.AddIdentityServer();</span><br><span class="line">        </span><br><span class="line">          services.AddAuthentication()</span><br><span class="line">            .AddGoogle(&quot;Google&quot;, options =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;</span><br><span class="line"></span><br><span class="line">                options.ClientId = &quot;708996912208-9m4dkjb5hscn7cjrn5u0r4tbgkbj1fko.apps.googleusercontent.com&quot;;</span><br><span class="line">                options.ClientSecret = &quot;wdfPY6t8H8cecgjlxud__4Gh&quot;;</span><br><span class="line">            &#125;)</span><br><span class="line">            .AddOpenIdConnect(&quot;demoidsrv&quot;, &quot;IdentityServer&quot;, options =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;</span><br><span class="line">                options.SignOutScheme = IdentityServerConstants.SignoutScheme;</span><br><span class="line"></span><br><span class="line">                options.Authority = &quot;https://demo.identityserver.io/&quot;;</span><br><span class="line">                options.ClientId = &quot;implicit&quot;;</span><br><span class="line">                options.ResponseType = &quot;id_token&quot;;</span><br><span class="line">                options.SaveTokens = true;</span><br><span class="line">                options.CallbackPath = new PathString(&quot;/signin-idsrv&quot;);</span><br><span class="line">                options.SignedOutCallbackPath = new PathString(&quot;/signout-callback-idsrv&quot;);</span><br><span class="line">                options.RemoteSignOutPath = new PathString(&quot;/signout-idsrv&quot;);</span><br><span class="line"></span><br><span class="line">                options.TokenValidationParameters = new TokenValidationParameters</span><br><span class="line">                &#123;</span><br><span class="line">                    NameClaimType = &quot;name&quot;,</span><br><span class="line">                    RoleClaimType = &quot;role&quot;</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                原创声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/02/02/1-初步构建/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2018/02/02/5-JS的隐式授予/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+         if (typeof LivereTower === 'function') { return; }
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+</div>
+
+
+    </div>
 
 
 

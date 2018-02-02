@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="攀峰工作室文件共享">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>初步构建 | 攀峰工作室文件共享</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="攀峰工作室文件共享" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner2.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题">  
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/语言/"><i class="fa fa-fw "></i>语言</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/算法/"><i class="fa fa-fw "></i>算法</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/环境/"><i class="fa fa-fw "></i>环境</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/框架和第三方库/"><i class="fa fa-fw "></i>框架和第三方库</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/工具/"><i class="fa fa-fw "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/云服务/"><i class="fa fa-fw "></i>云服务</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="初步构建">
+            
+	            初步构建
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>框架和第三方库</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            IdentityServer4
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/02</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>关于认证服务本来打算使用Azure AD，但在部署的时候碰到一些小问题，且Azure AD需要和订阅绑定，为了方便之后的拓展开发，所以最后决定自己构建一套账号认证服务，计划采用框架为IdentityServer4。</p>
+<h2 id="初步构建"><a href="#初步构建" class="headerlink" title="初步构建"></a>初步构建</h2><p>因为一些个人原因，以及调试方便，这里我就直接使用VS作为开发环境了，之后如果有空的话，会补上脱离VS的开发流程。</p>
+<p>首先，我们通过VS 建立一个空的Asp.net Core项目，并添加上IdentityServer4引用，在程序包管理控制台中键入以下代码。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install-Package IdentityServer4 -v 2.1.1</span><br></pre></td></tr></table></figure>
+<p>然后，我们创建一个<code>Config.cs</code>文件，用于配置测试数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line">using IdentityServer4;</span><br><span class="line">using IdentityServer4.Models;</span><br><span class="line">using IdentityServer4.Test;</span><br><span class="line">using System.Collections.Generic;</span><br><span class="line">using System.Security.Claims;</span><br><span class="line"></span><br><span class="line">namespace SSO</span><br><span class="line">&#123;</span><br><span class="line">    public class Config</span><br><span class="line">    &#123;</span><br><span class="line">        // scopes</span><br><span class="line">        public static IEnumerable&lt;IdentityResource&gt; GetIdentityResources()</span><br><span class="line">        &#123;</span><br><span class="line">            return new List&lt;IdentityResource&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                new IdentityResources.OpenId(),</span><br><span class="line">                new IdentityResources.Profile()</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // api</span><br><span class="line">        public static IEnumerable&lt;ApiResource&gt; GetApiResources()</span><br><span class="line">        &#123;</span><br><span class="line">            return new List&lt;ApiResource&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                new ApiResource(&quot;api1&quot;, &quot;MY API&quot;)</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // client</span><br><span class="line">        public static IEnumerable&lt;Client&gt; GetClients()</span><br><span class="line">        &#123;</span><br><span class="line">            // client credentials client</span><br><span class="line">            return new List&lt;Client&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                new Client</span><br><span class="line">                &#123;</span><br><span class="line">                    ClientId = &quot;client&quot;,</span><br><span class="line">                    AllowedGrantTypes = GrantTypes.ClientCredentials,</span><br><span class="line"></span><br><span class="line">                    ClientSecrets =</span><br><span class="line">                    &#123;</span><br><span class="line">                        new Secret(&quot;secret&quot;.Sha256())</span><br><span class="line">                    &#125;,</span><br><span class="line">                    AllowedScopes = &#123; &quot;api1&quot; &#125;</span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">                // resource owner password grant client</span><br><span class="line">                new Client</span><br><span class="line">                &#123;</span><br><span class="line">                    ClientId = &quot;ro.client&quot;,</span><br><span class="line">                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,</span><br><span class="line">                    AllowOfflineAccess = true,</span><br><span class="line"></span><br><span class="line">                    ClientSecrets =</span><br><span class="line">                    &#123;</span><br><span class="line">                        new Secret(&quot;secret&quot;.Sha256())</span><br><span class="line">                    &#125;,</span><br><span class="line">                    AllowedScopes = &#123; &quot;api1&quot;, &quot;profile&quot;, &quot;openid&quot; &#125;</span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">                // OpenID Connect hybrid flow and client credentials client (MVC)</span><br><span class="line">                new Client</span><br><span class="line">                &#123;</span><br><span class="line">                    ClientId = &quot;mvc&quot;,</span><br><span class="line">                    ClientName = &quot;MVC Client&quot;,</span><br><span class="line">                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,</span><br><span class="line"></span><br><span class="line">                    ClientSecrets =</span><br><span class="line">                    &#123;</span><br><span class="line">                        new Secret(&quot;secret&quot;.Sha256())</span><br><span class="line">                    &#125;,</span><br><span class="line"></span><br><span class="line">                    RedirectUris = &#123; &quot;http://localhost:5002/signin-oidc&quot; &#125;,</span><br><span class="line">                    PostLogoutRedirectUris = &#123; &quot;http://localhost:5002/signout-callback-oidc&quot; &#125;,</span><br><span class="line"></span><br><span class="line">                    AllowedScopes =</span><br><span class="line">                    &#123;</span><br><span class="line">                        IdentityServerConstants.StandardScopes.OpenId,</span><br><span class="line">                        IdentityServerConstants.StandardScopes.Profile,</span><br><span class="line">                        &quot;api1&quot;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    AllowOfflineAccess = true</span><br><span class="line">                &#125;,</span><br><span class="line"></span><br><span class="line">                // JavaScript Client</span><br><span class="line">                new Client</span><br><span class="line">                &#123;</span><br><span class="line">                    ClientId = &quot;js&quot;,</span><br><span class="line">                    ClientName = &quot;JavaScript Client&quot;,</span><br><span class="line">                    AllowedGrantTypes = GrantTypes.Implicit,</span><br><span class="line">                    AllowAccessTokensViaBrowser = true,</span><br><span class="line"></span><br><span class="line">                    RedirectUris = &#123; &quot;http://localhost:5003/callback.html&quot; &#125;,</span><br><span class="line">                    PostLogoutRedirectUris = &#123; &quot;http://localhost:5003/index.html&quot; &#125;,</span><br><span class="line">                    AllowedCorsOrigins = &#123; &quot;http://localhost:5003&quot; &#125;,</span><br><span class="line"></span><br><span class="line">                    AllowedScopes =</span><br><span class="line">                    &#123;</span><br><span class="line">                        IdentityServerConstants.StandardScopes.OpenId,</span><br><span class="line">                        IdentityServerConstants.StandardScopes.Profile,</span><br><span class="line">                        &quot;api1&quot;</span><br><span class="line">                    &#125;,</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // user</span><br><span class="line">        public static List&lt;TestUser&gt; GetUsers()</span><br><span class="line">        &#123;</span><br><span class="line">            return new List&lt;TestUser&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                new TestUser</span><br><span class="line">                &#123;</span><br><span class="line">                    SubjectId = &quot;1&quot;,</span><br><span class="line">                    Username = &quot;alice&quot;,</span><br><span class="line">                    Password = &quot;password&quot;,</span><br><span class="line"></span><br><span class="line">                    Claims = new List&lt;Claim&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        new Claim(&quot;name&quot;, &quot;Alice&quot;),</span><br><span class="line">                        new Claim(&quot;website&quot;, &quot;https://alice.com&quot;)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;,</span><br><span class="line">                new TestUser</span><br><span class="line">                &#123;</span><br><span class="line">                    SubjectId = &quot;2&quot;,</span><br><span class="line">                    Username = &quot;bob&quot;,</span><br><span class="line">                    Password = &quot;password&quot;,</span><br><span class="line"></span><br><span class="line">                    Claims = new List&lt;Claim&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        new Claim(&quot;name&quot;, &quot;Bob&quot;),</span><br><span class="line">                        new Claim(&quot;website&quot;, &quot;https://bob.com&quot;)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>Startup.cs</code>中配置IdentityServer。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public void ConfigureServices(IServiceCollection services)</span><br><span class="line">&#123;</span><br><span class="line">    services.AddIdentityServer()</span><br><span class="line">        .AddDeveloperSigningCredential()</span><br><span class="line">        .AddInMemoryIdentityResources(Config.GetIdentityResources())</span><br><span class="line">        .AddInMemoryApiResources(Config.GetApiResources())</span><br><span class="line">        .AddInMemoryClients(Config.GetClients())</span><br><span class="line">        .AddTestUsers(Config.GetUsers());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public void Configure(IApplicationBuilder app, IHostingEnvironment env)</span><br><span class="line">&#123;</span><br><span class="line">    // ...</span><br><span class="line">    app.UseIdentityServer();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后修改项目的启动设置<code>Properties &gt; launchSettings.json</code>，将<code>applicationUrl</code>均设置为<code>http://localhost:5000/</code>，<code>launchBrowser</code>为<code>false</code>。</p>
+<p>为了方便之后的使用，这里我们通过IIS Express启动。</p>
+<p>访问<a href="http://localhost:5000/.well-known/openid-configuration" target="_blank" rel="noopener">http://localhost:5000/.well-known/openid-configuration</a>我们应该能看到IdentityServer的元数据。</p>
+<p><img src="https://blog-1252574286.cossh.myqcloud.com/pfstudio/IdentityServer/1-IdentityServer-metadata.PNG" alt="IdentityServer-metadata"></p>
+<p>至此，我们通过测试数据和默认配置初步构建了一个IdentityServer。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                原创声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2018/02/02/4-添加Quickstart.UI/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+         if (typeof LivereTower === 'function') { return; }
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+</div>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>主题Snippet v1.2.0版本已经上线！欢迎更新~ <br/>
+主题下载：<a href="https://github.com/shenliyang/hexo-theme-snippet" title="fork me" target="_blank">Snippet主题</a> <br/>
+<hr/>接受贡献，包括不限于提交问题与需求，修复代码。欢迎Pull Request<br/>支持主题：<a href="https://github.com/shenliyang/hexo-theme-snippet/stargazers">Star一下</a>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/shenliyang" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:snippet@91h5.cc" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/框架和第三方库/"><i class="fa" aria-hidden="true">框架和第三方库</i></a><span class="category-list-count">9</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">10</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/ASP-NET-Core/" style="font-size: 15px;">ASP.NET Core</a> <a href="/tags/EntityFramework-Core/" style="font-size: 10px;">EntityFramework Core</a> <a href="/tags/IdentityServer/" style="font-size: 20px;">IdentityServer</a> <a href="/tags/IdentityServer4/" style="font-size: 20px;">IdentityServer4</a> <a href="/tags/签到系统-V3-0/" style="font-size: 15px;">签到系统 V3.0</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://pfsign.hdulxy.cn" class="fa" target="_blank">攀峰工作室签到系统</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

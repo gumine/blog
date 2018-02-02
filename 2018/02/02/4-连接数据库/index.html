@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="攀峰工作室文件共享">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>连接数据库 | 攀峰工作室文件共享</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="攀峰工作室文件共享" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css?rev=3.3.4">
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner2.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="">
+            <img src="/img/avatar.jpg" alt="logo头像">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题">  
+             
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                    </span>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation"><a href="/"><i class="fa fa-fw "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/语言/"><i class="fa fa-fw "></i>语言</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/算法/"><i class="fa fa-fw "></i>算法</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/环境/"><i class="fa fa-fw "></i>环境</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/框架和第三方库/"><i class="fa fa-fw "></i>框架和第三方库</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/工具/"><i class="fa fa-fw "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation"><a href="/categories/云服务/"><i class="fa fa-fw "></i>云服务</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="连接数据库">
+            
+	            连接数据库
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>框架和第三方库</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            签到系统 V3.0
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/02</span>
+    </span>
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>在前面的小节中，我们通过模拟数据的形式对后台Api进行了测试，而在实际生产环境中，我们往往需要通过数据库来的进行数据的持久化。</p>
+<p>我们这里使用的数据库是本地的SQL Server数据库，利用EF Core 作为ORM框架。</p>
+<h2 id="创建数据库上下文"><a href="#创建数据库上下文" class="headerlink" title="创建数据库上下文"></a>创建数据库上下文</h2><p>本节需要引用的名称空间有：</p>
+<ul>
+<li>Microsoft.EntityFrameworkCore</li>
+<li>PFSign.Models</li>
+</ul>
+<p>我们所要创建的上下文类型应该继承自默认上下文<code>DbContext</code>，并且在其中添加我们的数据集<code>DbSet&lt;Record&gt; Records</code>。</p>
+<p>(<code>../Data/RecordDbContext.cs</code>)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public class RecordDbContext : DbContext</span><br><span class="line">&#123;</span><br><span class="line">    public DbSet&lt;Record&gt; Records &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="在Services中添加上下文服务"><a href="#在Services中添加上下文服务" class="headerlink" title="在Services中添加上下文服务"></a>在Services中添加上下文服务</h2><p>本节需要引用的名称空间有：</p>
+<ul>
+<li>Microsoft.EntityFrameworkCore</li>
+<li>PFSign.Data</li>
+</ul>
+<p>利用Asp.net core 自带的Ioc框架，我们可以很轻松的实现上下文服务的添加。</p>
+<p>(<code>../Startup.cs</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void ConfigureServices(IServiceCollection services)</span><br><span class="line">&#123;</span><br><span class="line">    // 务必在AddMvc之前添加</span><br><span class="line">    services.AddDbContext&lt;RecordDbContext&gt;(</span><br><span class="line">        // 此处配置数据库连接信息</span><br><span class="line">    );</span><br><span class="line">    services.AddMvc();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后就是关于数据库连接的配置，由于我们使用的是本地SQL Server数据库，我们先在配置文件中添加连接字符串。</p>
+<p>(<code>../appsettings.json</code>)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"ConnectionStrings": &#123;</span><br><span class="line">"Local": "Server=(localdb)\\mssqllocaldb;Database=PFSignDev;Trusted_Connection=True;MultipleActiveResultSets=true"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，利用该连接字符串配置数据库连接。</p>
+<p>(<code>../Startup.cs</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">services.AddDbContext&lt;RecordDbContext&gt;(options</span><br><span class="line">        =&gt; options.UseSqlServer(Configuration.GetConnectionString(&quot;Local&quot;)));</span><br></pre></td></tr></table></figure>
+<p>最后，利用该配置信息去构造上下文。</p>
+<p>(<code>../Data/RecordDbContext.cs</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class RecordDbContext : DbContext</span><br><span class="line">&#123;</span><br><span class="line">    public RecordDbContext(DbContextOptions&lt;RecordDbContext&gt; options)</span><br><span class="line">        :base(options)</span><br><span class="line">    &#123;&#125;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="构建数据库"><a href="#构建数据库" class="headerlink" title="构建数据库"></a>构建数据库</h2><p>因为是Code-First的设计思路，我们已经在代码中定义好关于数据对象的属性。现在我们利用ef工具，根据我们代码中的定义来创建这个数据库。</p>
+<p>首先，添加ef工具。</p>
+<p>在<code>../PFSign.csproj</code>文件中添加对ef工具的引用。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">DotNetCliToolReference</span> <span class="attr">Include</span>=<span class="string">"Microsoft.EntityFrameworkCore.Tools.DotNet"</span> <span class="attr">Version</span>=<span class="string">"2.0.0"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ItemGroup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后打开命令行键入<code>dotnet restore</code>导入该工具。</p>
+<p>之后，键入<code>dotnet ef migrations add Init</code>来生成新的迁移代码。</p>
+<p>如下图即生成成功，所生成的代码在<code>../Migrations</code>中。</p>
+<p><img src="https://blog-1252574286.cossh.myqcloud.com/pfstudio/%E7%AD%BE%E5%88%B0%E7%B3%BB%E7%BB%9FV3.0/4-Add-Migration.PNG" alt="Add-Migration"></p>
+<p>最后，键入<code>dotnet ef database update</code>，利用迁移代码创建数据库。</p>
+<p><img src="https://blog-1252574286.cossh.myqcloud.com/pfstudio/%E7%AD%BE%E5%88%B0%E7%B3%BB%E7%BB%9FV3.0/4-Update-Database.PNG" alt="Update-Database"></p>
+<p>利用SSMS，我们可以看到ef工具已经帮我们建立对应的数据库以及表。</p>
+<p><img src="https://blog-1252574286.cossh.myqcloud.com/pfstudio/%E7%AD%BE%E5%88%B0%E7%B3%BB%E7%BB%9FV3.0/4-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%BB%93%E6%9E%84.PNG" alt="数据库表结构"></p>
+<h2 id="注入上下文"><a href="#注入上下文" class="headerlink" title="注入上下文"></a>注入上下文</h2><p>这里我们使用构造注入。</p>
+<p>(<code>../Controllers/RecordController.cs</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private readonly RecordDbContext _context;</span><br><span class="line"></span><br><span class="line">public RecordController(RecordDbContext context)</span><br><span class="line">&#123;</span><br><span class="line">    _context = context;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后，我们将原本对于模拟数据集的引用替换为对上下文中数据集的引用，并且改写为异步方法。</p>
+<p>部分代码如下：</p>
+<p>(<code>../Controllers/RecordController.cs</code>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">// 添加三个名称空间的引用</span><br><span class="line">using System.Threading.Tasks;</span><br><span class="line">using Microsoft.EntityFrameworkCore;</span><br><span class="line">using PFSign.Data;</span><br><span class="line"></span><br><span class="line">namespace PFSign.Controllers</span><br><span class="line">&#123;</span><br><span class="line">    [Route(&quot;/api/[Controller]&quot;)]</span><br><span class="line">    public class RecordController</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        // async标识为异步方法，返回Task的泛型</span><br><span class="line">        public async Task&lt;object&gt; Index</span><br><span class="line">            (DateTime? begin, DateTime? end)</span><br><span class="line">        &#123;</span><br><span class="line">            // ...</span><br><span class="line"></span><br><span class="line">            return await (from r in _context.Records</span><br><span class="line">                          // ...</span><br><span class="line">                          select new</span><br><span class="line">                          &#123; // ... &#125;).ToListAsync();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        [HttpPost(&quot;[Action]&quot;)]</span><br><span class="line">        public async Task&lt;object&gt; SignIn</span><br><span class="line">            (string userId, string name, int seat)</span><br><span class="line">        &#123;</span><br><span class="line">            // ...</span><br><span class="line"></span><br><span class="line">            _context.Add(record);</span><br><span class="line">            await _context.SaveChangesAsync();</span><br><span class="line"></span><br><span class="line">            // ...</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        [HttpPost(&quot;[Action]&quot;)]</span><br><span class="line">        public async Task&lt;object&gt; SignOut(string userId)</span><br><span class="line">        &#123;</span><br><span class="line">            Record record = await (from r in _context.Records</span><br><span class="line">                                   where r.SignOutTime == null</span><br><span class="line">                                   &amp;&amp; r.UserId == userId</span><br><span class="line">                                   select r).FirstOrDefaultAsync();</span><br><span class="line">            </span><br><span class="line">            // ...</span><br><span class="line"></span><br><span class="line">            _context.Update(record);</span><br><span class="line">            await _context.SaveChangesAsync();</span><br><span class="line"></span><br><span class="line">            // ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，我们已经完成数据在数据库中持久化的代码。</p>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                原创声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/02/02/1-前言/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2018/02/02/3-设计后台Api/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+         if (typeof LivereTower === 'function') { return; }
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+</div>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+    <aside class="col-md-4 sidebar">
+        
+        
+    <div class="widget">    
+        <h3 class="title">搜索</h3>
+        <div id="search-form">
+            <div id="result-mask" class="hide"></div>
+            <div class="search-area">
+                
+                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢?">
+                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
+                
+                
+            </div>
+            <div id="result-wrap" class="hide">
+                <div id="search-result"></div>
+            </div>
+            <div class="hide">
+                <template id="search-tpl">
+                    <div class="item">
+                        <a href="/{path}" title="{title}">
+                            <div class="title">{title}</div>
+                            <div class="content">{content}</div>
+                        </a>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget notification">
+        <h3 class="title">网站公告</h3>
+        <div>
+            <p>主题Snippet v1.2.0版本已经上线！欢迎更新~ <br/>
+主题下载：<a href="https://github.com/shenliyang/hexo-theme-snippet" title="fork me" target="_blank">Snippet主题</a> <br/>
+<hr/>接受贡献，包括不限于提交问题与需求，修复代码。欢迎Pull Request<br/>支持主题：<a href="https://github.com/shenliyang/hexo-theme-snippet/stargazers">Star一下</a>
+</p>
+        </div>
+    </div>
+
+        
+        
+    <div class="widget">
+      <h3 class="title">社交</h3> 
+        <div class="content social">
+            
+	            <a href="//github.com/shenliyang" rel="external nofollow" title="Github" target="_blank">
+			    	<i class="git fa fa-git"></i>
+			    </a>
+            
+	            <a href="mailto:snippet@91h5.cc" rel="external nofollow" title="邮箱" target="_blank">
+			    	<i class="envelope-o fa fa-envelope-o"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="联系QQ" target="_blank">
+			    	<i class="qq fa fa-qq"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="微博" target="_blank">
+			    	<i class="weibo fa fa-weibo"></i>
+			    </a>
+            
+	            <a href="/" rel="external nofollow" title="QQ群" target="_blank">
+			    	<i class="users fa fa-users"></i>
+			    </a>
+            
+	            <a href="/atom.xml" rel="external nofollow" title="RSS" target="_blank">
+			    	<i class="feed fa fa-feed"></i>
+			    </a>
+            
+        </div>
+    </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">分类</h3>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/框架和第三方库/"><i class="fa" aria-hidden="true">框架和第三方库</i></a><span class="category-list-count">9</span></li></ul>
+    </div>
+
+
+        
+        
+    <div class="widget">
+      <h3 class="title">归档</h3>
+        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/"><i class="fa" aria-hidden="true">二月 2018</i></a><span class="archive-list-count">10</span></li></ul>
+    </div>
+
+
+        
+        
+  <div class="widget">
+    <h3 class="title">标签云</h3>
+    <div class="content tag-cloud">
+        <a href="/tags/ASP-NET-Core/" style="font-size: 15px;">ASP.NET Core</a> <a href="/tags/EntityFramework-Core/" style="font-size: 10px;">EntityFramework Core</a> <a href="/tags/IdentityServer/" style="font-size: 20px;">IdentityServer</a> <a href="/tags/IdentityServer4/" style="font-size: 20px;">IdentityServer4</a> <a href="/tags/签到系统-V3-0/" style="font-size: 15px;">签到系统 V3.0</a>
+    </div>
+  </div>
+
+
+        
+        
+    <div class="widget">
+        <h3 class="title">友链</h3>
+        <div class="content friends-link">
+        
+            <a href="https://pfsign.hdulxy.cn" class="fa" target="_blank">攀峰工作室签到系统</a>
+        
+        </div>
+    </div>
+
+
+        
+    </aside>
+
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+	<script src="/js/search.js?rev=@@hash"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

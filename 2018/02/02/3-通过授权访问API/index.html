@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>归档：2018 | 攀峰工作室文件共享</title>
+<title>通过授权访问API | 攀峰工作室文件共享</title>
 
 
     <link rel="alternate" href="/atom.xml" title="攀峰工作室文件共享" type="application/atom+xml">
@@ -127,75 +127,119 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <div id="main">
-  <div id="post-list">
-    <ul class="archives-post-list">
-    	<h1 class="info">2018年 月</h1>
-        
-          <li class="post-items" _href="/2018/02/02/1-初步构建/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/1-初步构建/"> 初步构建 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/4-添加Quickstart.UI/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/4-添加Quickstart.UI/"> 添加Quickstart.UI </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/5-JS的隐式授予/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/5-JS的隐式授予/"> JS的隐式授予 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/2-使用IdentityServer保护API/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/2-使用IdentityServer保护API/"> 使用IdentityServer保护API </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/3-通过授权访问API/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/3-通过授权访问API/"> 通过授权访问API </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/1-前言/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/1-前言/"> 前言 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/4-连接数据库/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/4-连接数据库/"> 连接数据库 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/3-设计后台Api/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/3-设计后台Api/"> 设计后台Api </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/02/2-框架构建/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/02/2-框架构建/"> 框架构建 </a>
-            </h3>  
-          </li>
-        
-          <li class="post-items" _href="/2018/02/01/index/">
-            <h3 class="post-item-title">
-            	<a href="/2018/02/01/index/">  </a>
-            </h3>  
-          </li>
-        
-    </ul>
-  </div>
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="通过授权访问API">
+            
+	            通过授权访问API
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <span>框架和第三方库</span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            IdentityServer4
+            
+        </span>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">2018/02/02</span>
+    </span>
 </div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="通过授权访问API"><a href="#通过授权访问API" class="headerlink" title="通过授权访问API"></a>通过授权访问API</h2><p>在上一节中，我们已经成功将后台API保护了起来，但我们应该如何访问该API呢？这节我们将通过一个简单的Console例子，来实现认证并获取资源的流程。</p>
+<h2 id="构建Client"><a href="#构建Client" class="headerlink" title="构建Client"></a>构建Client</h2><p>首先还是一样，我们在VS中新建一个.net core Console项目，并为其添加<code>IdentityModel</code>的引用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Install-Package IdentityModel -v 3.0.0</span><br></pre></td></tr></table></figure>
+<p>虽然微软已经在最新版本的C#中，添加了Main函数可以异步使用的特性。但考虑到大部分人使用的版本并不是最新的，这里还是先把Main函数改造一下，变成如下形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args) =&gt; MainAsync().Wait();</span><br><span class="line"></span><br><span class="line">private static async Task MainAsync()</span><br><span class="line">&#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先利用DiscoverClient 从metadata中获取 EndPoint。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var meta = await DiscoveryClient.GetAsync(&quot;http://localhost:5000/&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>然后，根据第一节中Client的注册信息来创建Client，这里我们使用下面两种Client。</p>
+<ol>
+<li>ClientCredentials<ul>
+<li>ClientId: client</li>
+<li>ClientSecret: secret</li>
+</ul>
+</li>
+<li>ResourceOwnerPassword<ul>
+<li>ClientId: ro.client</li>
+<li>ClientSecret: secret</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// ClientCredentials</span><br><span class="line">using (var tokenClient = new TokenClient(meta.TokenEndpoint, &quot;client&quot;, &quot;secret&quot;))</span><br><span class="line">&#123;</span><br><span class="line">    // 通过客户端认证的方式获取Token</span><br><span class="line">    var tokenResponse = await tokenClient.RequestClientCredentialsAsync(&quot;api1&quot;);</span><br><span class="line"></span><br><span class="line">    if (tokenResponse.IsError)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.Error.WriteLine(tokenResponse.Error);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(&quot;TokenResponse Return:&quot;);</span><br><span class="line">    Console.WriteLine(tokenResponse.Json);</span><br><span class="line"></span><br><span class="line">    var httpClient = new HttpClient();</span><br><span class="line">    httpClient.SetBearerToken(tokenResponse.AccessToken);</span><br><span class="line">    var message = await httpClient.GetAsync(&quot;http://localhost:5001/api/values&quot;);</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(&quot;API Resource:&quot;);</span><br><span class="line">    Console.WriteLine(await message.Content.ReadAsStringAsync());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>ResourceOwnerPassword</code>的用法和上述相似，只是需要在请求token时提供user和password。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var tokenResponse = await tokenClient</span><br><span class="line">    .RequestResourceOwnerPasswordAsync(</span><br><span class="line">        &quot;bob&quot;, &quot;password&quot;, &quot;api1&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="额外的Scope"><a href="#额外的Scope" class="headerlink" title="额外的Scope"></a>额外的Scope</h2><p>细心的应该发现我在注册<code>ro.client</code>应用时，比<code>client</code>多申请了几个权限，接下来我们再来说一下剩下的权限有什么用。</p>
+<ol>
+<li><p>首先是<code>AllowOfflineAccess = true</code>。<br>这个是用于获取<strong>refresh_token</strong>，<br>可以让你在<strong>access_token</strong>即将过期时，使用它去获取一个新的token。用法如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 添加offline_access这个scope，用于申请refresh_token</span><br><span class="line">var tokenResponse = await tokenClient</span><br><span class="line">    .RequestResourceOwnerPasswordAsync(&quot;bob&quot;, &quot;password&quot;, &quot;api1 offline_access&quot;);</span><br><span class="line">// 使用refresh_token获取新的token</span><br><span class="line">var newTokenResponse = await tokenClient.RequestRefreshTokenAsync(tokenResponse.RefreshToken);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>openid</code>和<code>profile</code>，分别用于获取用户的Id和信息。使用方法如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 添加scope：openid profile</span><br><span class="line">var tokenResponse = await tokenClient</span><br><span class="line">    .RequestResourceOwnerPasswordAsync(&quot;bob&quot;, &quot;password&quot;, &quot;openid profile&quot;);</span><br><span class="line"></span><br><span class="line">var userInfoClient = new UserInfoClient(meta.UserInfoEndpoint);</span><br><span class="line">// 使用access_token去获取UserInfo</span><br><span class="line">var userInfoResponse = await userInfoClient.GetAsync(tokenResponse.AccessToken);</span><br><span class="line">Console.WriteLine(userInfoResponse.Json);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-footer">   
+        <div>
+            
+                原创声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>  
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/02/02/2-使用IdentityServer保护API/" class="pre-post btn btn-default"><i class="fa fa-angle-left fa-fw"></i>上一篇</a>
+    
+    
+        <a href="/2018/02/02/1-前言/" class="next-post btn btn-default">下一篇<i class="fa fa-angle-right fa-fw"></i></a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzA1MS85NjEz">
+  <script type="text/javascript">
+     (function(d, s) {
+         var j, e = d.getElementsByTagName(s)[0];
+         if (typeof LivereTower === 'function') { return; }
+         j = d.createElement(s);
+         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+         j.async = true;
+         e.parentNode.insertBefore(j, e);
+     })(document, 'script');
+  </script>
+</div>
+
+
+    </div>
 
 
 
